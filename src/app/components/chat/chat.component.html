@@ -1,0 +1,20 @@
+<mat-list>
+  <mat-list-item *ngFor="let message of conversation">
+    <mat-icon>{{ message.avatar }}</mat-icon>
+    <h3 matLine> {{message.from}} </h3>
+    <p matLine>
+      <span> {{message.content}} </span>
+    </p>
+  </mat-list-item>
+</mat-list>
+<md-divider></md-divider>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput 
+           #message 
+           maxlength="256" 
+           placeholder="Message" 
+           (keyup.enter)="addMessageFromUser(message)">
+    <mat-icon matSuffix (click)="addMessageFromUser(message)">send</mat-icon>
+  </mat-form-field>
+</form>
